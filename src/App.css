@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #344FA1;
+    min-height: 100vh;
+    font-style: normal;
+    font-weight: normal;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+}
+.content_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50rem;
+}
+h1 {
+    font-size: 40px;
+    line-height: 60px;
+    color: white;
+    margin: 2rem 0 1rem;
+}
+.container_input {
+    position: relative;
+    margin-bottom: 1.5rem;
+    width: 28rem;
+
+}
+input {
+    outline: none;
+}
+input[type="text"]{
+    width: 100%;
+    height: 3.5rem; 
+    padding-left: 1rem;
+    padding-right: 5rem;
+    border-radius: 1rem;
+    border: 0;
+    font-size: 16px;
+    color: #010319;
+    font-family: 'Poppins', sans-serif;
+
+}
+.submit_btn {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: #EB05FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute; 
+    right: 0.5rem;
+    top: 9px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.submit_btn:hover {
+    background-color: #ea05ff9f;
+}
+.submit_btn svg{
+    width: 50%;
+    height: 50%;
+}
+.submit_btn svg path {
+    fill: white;
+}
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0;
+}
+.task{
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    width: 28rem;
+    height: 4rem;
+    background-color: #0a155a;
+    margin-bottom: 1rem;
+    border-radius: 1.5rem;
+    color: white;
+    position: relative;
+    cursor: pointer;
+}
+
+input[type="checkbox"]{
+    display: none;
+}
+.task label {
+    position: relative;
+}
+.task label::before {
+    content: '';
+    border: 2px solid;
+    border-color: #EB05FF;
+    padding: 13.5px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+}
+.task label::after {
+    opacity: 0;
+    content: '';
+    position: absolute;
+    left: 11.5px;
+    top: 6px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+.task  input:checked + label::after  {
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+.task input:checked + label::before{
+    background-color: #1E3683;
+    border-color: #1E3683;
+    transition: background-color 1s ease;
+}
+.task input:checked + label {
+    text-decoration: line-through;
+}
+.trash-icon {
+    opacity: 0;
+    font-size: 1.3rem;
+    position: absolute;
+    right: 1rem;
+    cursor: pointer;
+
+}
+.task:hover .trash-icon {
+    opacity: 1;
+    transition: all 1s ease;
+}
+
+.remove-task {
+    opacity: 0;
+    height: 0px;
+    transition: height 0.2s;
+}
