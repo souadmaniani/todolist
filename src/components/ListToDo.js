@@ -5,7 +5,7 @@ const List = ({todos, settodos}) => {
         <ul id="myList">
             
             {todos.map(task => (
-                <Todo content={task} key={i++} settodos={settodos} />
+                <Todo content={task} key={i++} settodos={settodos} todos={todos} />
             ))}
         </ul>
     )

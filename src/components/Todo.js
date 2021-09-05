@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import _uniqueId from 'lodash/uniqueId';
 
-const Todo = ({content, settodos}) => {
+const Todo = ({content, settodos, todos}) => {
     
     const [id] = useState(_uniqueId('prefix-'));
-    // const deleteTask = ()=>{
-    //     settodos((oldTodos)=> )
-    // }
+    const deleteTask = () => {
+        settodos(todos.filter(item => item !== content))
+    }
 
     return (
         <li className="task">
