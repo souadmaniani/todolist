@@ -1,3 +1,4 @@
+import axios from 'axios'
 
 const Form = ({settextInput, settodos, textInput}) => {
 
@@ -10,6 +11,9 @@ const Form = ({settextInput, settodos, textInput}) => {
         if (textInput)
         {
             settodos(oldTodos => [...oldTodos, textInput])
+            axios.post('http://localhost:4000/api/v1/todos', {todo: textInput})
+            .then(()=> console.log('success'))
+            .catch(()=> console.log('failed'))
             settextInput('')
         }
     }

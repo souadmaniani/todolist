@@ -1,0 +1,8 @@
+GET http://localhost:4000/api/v1/todos
+###
+POST http://localhost:4000/api/v1/todos
+Content-Type: application/json 
+
+{
+    "todo":"Lunch with my friends"
+}
