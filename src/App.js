@@ -10,8 +10,8 @@ function App() {
 	return (
 		<div className="content_container">
 			<h1>TODAY'S TASKS</h1>
-			<Form settextInput={settextInput} settodos={settodos} todos={todos} textInput={textInput}/>
-			<List todos={todos} settodos={settodos}/>
+			<Form settextInput={settextInput} textInput={textInput} settodos={settodos} todos={todos}  />
+			<List todos={todos} settodos={settodos} />
 		</div>
 		);
 	} 

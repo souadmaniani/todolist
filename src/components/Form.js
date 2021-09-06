@@ -1,25 +1,26 @@
 import axios from 'axios'
 
-const Form = ({settextInput, settodos, textInput}) => {
+const Form = ({settextInput, textInput, settodos, todos}) => {
 
-    // set Text Input
     const changeTextInput = (e)=> {
         settextInput(e.target.value);
     }
-    // fill todos array
-    const Submit = ()=> {
+    
+    const Submit = async ()=> {
         if (textInput)
         {
-            settodos(oldTodos => [...oldTodos, textInput])
-            axios.post('http://localhost:4000/api/v1/todos', {todo: textInput})
-            .then(()=> console.log('success'))
-            .catch(()=> console.log('failed'))
-            settextInput('')
-        }
+            try {
+                const res = await axios.post('http://localhost:4000/api/v1/todos', {todo: textInput})
+                settodos(oldTodos => [...oldTodos, res.data])
+                settextInput('')
+            } catch (error) {
+                console.log(error)
+            }
+        } 
     }
 
     return (
-        <form className="container_input">
+        <form className="container_input" action="/" method="POST">
             <input type="text" placeholder="Ex: meeting with souad"
                 id="input_id" onChange={changeTextInput} value={textInput} />
             <div className="submit_btn" id="add_todo" onClick = {Submit}>

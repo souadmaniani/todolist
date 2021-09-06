@@ -5,7 +5,7 @@ const model = require('../model')
 router.get('/' , async (req , res)=>{
     try {
         const data = await model.find({});
-        res.send(data)
+        res.status(200).json({data: data})
     } catch (error) {
         res.send(error)
     }
@@ -22,10 +22,9 @@ router.post('/' , async (req , res)=>{
 })
 
 router.delete('/:id', async(req, res)=> {
-    const id = req.params
-    console.log(req.params);
+    const {id} = req.params
     try {
-        await model.deleteOne(id)
+        await model.findOneAndDelete({_id: id})
         res.send("task deleted")
     } catch (error) {
         console.log(error);
